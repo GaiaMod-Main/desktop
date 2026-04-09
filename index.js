@@ -48,7 +48,7 @@ const setActivity = (details, state) => {
     state: state,
     startTimestamp: startTimestamp,
     largeImageKey: 'icon',
-    largeImageText: 'ElectraMod',
+    largeImageText: 'GaiaMod',
     instance: false,
   });
 };
@@ -71,7 +71,7 @@ const updateActivity = async (win) => {
     const currentURL = win.webContents.getURL();
     if (currentURL !== previousURL) {
       console.log('changed page!', currentURL);
-      if (currentURL.includes('/scratch-gui/build/index.html') || currentURL.includes('electramod.vercel.app/')) {
+      if (currentURL.includes('/build/index.html') || currentURL.includes('gaiamod-main.github.io/GaiaMod/')) {
         if (currentURL.includes('#')) {
           if (!currentURL.includes('#0')) {
             const projectId = extractHashNumbers(currentURL);
@@ -88,11 +88,11 @@ const updateActivity = async (win) => {
         } else {
           setActivity('in Editor', 'Code Editor');
         }
-      } else if (currentURL.includes('/scratch-gui/build/addons.html') || currentURL.includes('electramod.vercel.app/addons.html')) {
+      } else if (currentURL.includes('/build/addons.html') || currentURL.includes('gaiamod-main.github.io/GaiaMod/addons.html')) {
         setActivity('in Addons');
-      } else if (currentURL.includes('/packager/dist/') || currentURL.includes('electramod-packager.vercel.app/')) {
+      } else if (currentURL.includes('/packager/dist/') || currentURL.includes('gaiamod-main.github.io/GaiaMod/')) {
         setActivity('in Packager');
-      } else if (currentURL.includes('electramod-home.vercel.app')) {
+      } else if (currentURL.includes('gaiamod-main.github.io/GaiaMod')) {
         if (currentURL.includes('profile')) {
           if (currentURL.includes('profile?user=')) {
             const url = new URL(currentURL);
@@ -117,14 +117,14 @@ const configureWindow = (win) => {
 
   win.webContents.on('page-title-updated', (event, title) => {
     let newTitle = title;
-    if (title.startsWith('ElectraMod -')) {
-      newTitle = title.replace('ElectraMod -', 'ElectraMod Desktop -');
-    } else if (title.endsWith('- ElectraMod')) {
-      newTitle = title.replace('- ElectraMod', '- ElectraMod Desktop');
+    if (title.startsWith('GaiaMod -')) {
+      newTitle = title.replace('GaiaMod -', 'GaiaMod Desktop -');
+    } else if (title.endsWith('- GaiaMod')) {
+      newTitle = title.replace('- GaiaMod', '- GaiaMod Desktop');
     } else if (title.startsWith('PenguinMod -')) {
-      newTitle = title.replace('PenguinMod -', 'ElectraMod Desktop -');
+      newTitle = title.replace('PenguinMod -', 'GaiaMod Desktop -');
     } else if (title.endsWith('- PenguinMod')) {
-      newTitle = title.replace('- PenguinMod', '- ElectraMod Desktop');
+      newTitle = title.replace('- PenguinMod', '- GaiaMod Desktop');
     }
     if (newTitle !== title) {
       event.preventDefault(); // Prevent default title update
@@ -134,14 +134,14 @@ const configureWindow = (win) => {
 
   const checkURL = () => {
     const currentURL = win.webContents.getURL();
-    if (currentURL && currentURL.includes('electramod-packager.vercel.app')) {
+    if (currentURL && currentURL.includes('gaiamod-main.github.io/GaiaMod')) {
       const url = new URL(currentURL);
       const newURL = 'file://' + path.join(__dirname, 'packager', 'dist', 'index.html');
       const finalURL = newURL + url.search + url.hash;
       win.loadURL(finalURL);
-    } else if (currentURL && currentURL.includes('electramod.vercel.app')) {
+    } else if (currentURL && currentURL.includes('gaiamod-main.github.io/GaiaMod')) {
       const url = new URL(currentURL);
-      const newURL = 'file://' + path.join(__dirname, 'scratch-gui', 'build', 'index.html');
+      const newURL = 'file://' + path.join(__dirname, 'build', 'index.html');
       const finalURL = newURL + url.search + url.hash;
       win.loadURL(finalURL);
     }
@@ -176,7 +176,7 @@ const createWindow = () => {
     }
   });
 
-  mainWindow.loadFile('scratch-gui/build/index.html');
+  mainWindow.loadFile('build/index.html');
   configureWindow(mainWindow);
 
   // Gérer les nouvelles fenêtres (popups, etc.)
