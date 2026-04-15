@@ -1,8 +1,8 @@
 {
-  "name": "electramod-desktop",
-  "productName": "ElectraMod Desktop",
+  "name": "gaiamod-desktop",
+  "productName": "GaiaMod Desktop",
   "version": "1.0.0",
-  "description": "Desktop version of ElectraMod (without portalix launcher).",
+  "description": "Desktop version of GaiaMod (without portalix launcher).",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
@@ -12,13 +12,13 @@
     "load:packager": "node packagerProcess.js"
   },
   "keywords": [
-    "electramod",
+    "gaiamod",
     "desktop"
   ],
   "author": "Aness6040",
   "license": "MIT",
   "build": {
-    "appId": "com.portalix.electramod-desktop",
+    "appId": "com.portalix.gaiamod-desktop",
     "linux": {
       "target": [
         "snap",

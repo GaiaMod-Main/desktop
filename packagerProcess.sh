@@ -4,15 +4,15 @@
 if [ -d "packager" ]; then
   # Remove the packager folder if it exists
   echo "The packager folder exists. Removing..."
-  rm -rf packager
+  rm -rf GaiaMod-Packager
 fi
 
 # Clone the packager repository from GitHub
 echo "Cloning the packager repository from GitHub..."
-git clone https://github.com/ElectraMod/packager.git
+git clone https://github.com/GaiaMod-Main/GaiaMod-Packager.git
 
 # Navigate into the packager folder
-cd packager
+cd GaiaMod-Packager
 
 # Install dependencies using npm ci
 echo "Installing dependencies using npm i..."

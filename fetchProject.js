@@ -1,7 +1,7 @@
 const axios = require('axios');
 const _ = require('lodash');
 
-const url = 'https://projects.mubi.tech/api/projects/search?project';
+const url = 'https://projects.penguinmod.com/api/v1/projects/getproject';
 
 axios.get(url)
   .then(response => {

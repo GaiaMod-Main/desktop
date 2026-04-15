@@ -4,15 +4,15 @@
 if [ -d "scratch-gui" ]; then
   # Remove the scratch-gui folder if it exists
   echo "The scratch-gui folder exists. Removing..."
-  rm -rf scratch-gui
+  rm -rf gaiamod-main.github.io
 fi
 
 # Clone the scratch-gui repository from GitHub
 echo "Cloning the scratch-gui repository from GitHub..."
-git clone https://github.com/ElectraMod/scratch-gui.git
+git clone https://github.com/GaiaMod-Main/gaiamod-main.github.io.git
 
 # Navigate into the scratch-gui folder
-cd scratch-gui
+cd gaiamod-main.github.io
 
 # Install dependencies using npm ci
 echo "Installing dependencies using npm i..."
