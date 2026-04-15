@@ -71,7 +71,7 @@ const updateActivity = async (win) => {
     const currentURL = win.webContents.getURL();
     if (currentURL !== previousURL) {
       console.log('changed page!', currentURL);
-      if (currentURL.includes('/build/index.html') || currentURL.includes('gaiamod-main.github.io')) {
+      if (currentURL.includes('/gaiamod-main.github.io/build/index.html') || currentURL.includes('gaiamod-main.github.io')) {
         if (currentURL.includes('#')) {
           if (!currentURL.includes('#0')) {
             const projectId = extractHashNumbers(currentURL);
@@ -88,7 +88,7 @@ const updateActivity = async (win) => {
         } else {
           setActivity('in Editor', 'Code Editor');
         }
-      } else if (currentURL.includes('/build/addons.html') || currentURL.includes('gaiamod-main.github.io/addons.html')) {
+      } else if (currentURL.includes('/gaiamod-main.github.io/build/addons.html') || currentURL.includes('gaiamod-main.github.io/addons.html')) {
         setActivity('in Addons');
       } else if (currentURL.includes('/GaiaMod-Packager/dist/') || currentURL.includes('gaiamod-main.github.io')) {
         setActivity('in Packager');
@@ -141,7 +141,7 @@ const configureWindow = (win) => {
       win.loadURL(finalURL);
     } else if (currentURL && currentURL.includes('gaiamod-main.github.io')) {
       const url = new URL(currentURL);
-      const newURL = 'file://' + path.join(__dirname, 'build', 'index.html');
+      const newURL = 'file://' + path.join(__dirname, 'gaiamod-main.github.io', 'build', 'index.html');
       const finalURL = newURL + url.search + url.hash;
       win.loadURL(finalURL);
     }
@@ -176,7 +176,7 @@ const createWindow = () => {
     }
   });
 
-  mainWindow.loadFile('build/index.html');
+  mainWindow.loadFile('gaiamod-main.github.io/build/index.html');
   configureWindow(mainWindow);
 
   // Gérer les nouvelles fenêtres (popups, etc.)
