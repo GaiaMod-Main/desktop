@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if the scratch-gui folder exists
-if [ -d "scratch-gui" ]; then
+if [ -d "gaiamod-main.github.io" ]; then
   # Remove the scratch-gui folder if it exists
   echo "The scratch-gui folder exists. Removing..."
   rm -rf gaiamod-main.github.io
